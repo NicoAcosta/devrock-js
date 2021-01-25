@@ -1,0 +1,73 @@
+
+body {
+    font-family: 'lato';
+}
+
+
+header {
+    height: 70px;
+    background: cornflowerblue;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+header h1 {
+    color: white;
+    margin-left: 20px;
+}
+
+.addButton {
+    background: cornflowerblue;
+    border-radius: 200px;
+    color: white;
+    font-size: 25px;
+
+    height: 70px;
+    width: 70px;
+
+    position: fixed;
+    /* position: absolute; */
+    bottom: 20px;
+    right: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.empty-list {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    color: grey;
+    font-size: 30px;
+    text-align: center;
+}
+
+.empty-list i {
+    margin: 20px;
+    font-size: 50px;
+}
+
+
+
+
+.addForm {
+    background: #EEE;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 7px;
+
+    position: fixed;
+    top: 20%;
+    left: 2%;
+    right: 2%;
+    
+}
