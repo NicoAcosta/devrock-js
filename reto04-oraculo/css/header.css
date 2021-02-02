@@ -1,0 +1,13 @@
+
+header {
+    height: 8vh;
+    background: cornflowerblue;
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+    margin-left: 20px;
+    margin-bottom: 0;
+    color: var(--white);
+}

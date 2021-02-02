@@ -1,0 +1,23 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+:root {
+    --white: #FAFAFA;
+}
+
+.pantalla {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+
+.blank {
+    height: 15vh;
+}
+
+.oculto {
+    display: none;
+}

@@ -13,10 +13,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
 
-
-
-
-
     <title>Document</title>
 
 </head>
@@ -29,43 +25,66 @@
         <h1>ComprApp</h1>
     </header>
 
-    <section class="container">
-        
-        <div class="empty-list">
+    <section>
+      
+      <div class="popup addForm oculto" id="addForm">
+
+          <h3>Agregar ítem</h3>
+
+
+          <form id="form">
+
+            <div class="form-group">
+              <label for="item">Ítem</label>
+              <input type="text" class="form-control" id="formItemTitle" placeholder="Nombre del ítem" required>
+            </div>
+            <div class="form-group">
+              <label for="category">Categoría</label>
+              <select class="form-control" id="formItemCategory" required>
+                <option>Víveres</option>
+                <option>Lácteos</option>
+                <option>Vegetales</option>
+                <option>Electrónica</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="decription">Descripción</label>
+              <textarea class="form-control" id="formItemDescription" rows="5"></textarea>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" id="submitAddButton">Agregar</button>
+          </form>
+          
+      </div>
+
+      
+        <div class="empty-list" id="empty-list">
 
             <p>No hay nada para comprar</p>
             <i class="far fa-frown"></i>
 
         </div>
+
+        <div class="div-items-list">
+
+          <ul class="itemList" id="itemList">
+          </ul>
+
+        </div>
         
-        <div class="addForm">
-            <h3>Agregar ítem</h3>
-            <form>
-                <div class="form-group">
-                  <label for="item">Ítem</label>
-                  <input type="text" class="form-control" id="item" placeholder="Nombre del ítem">
-                </div>
-                <div class="form-group">
-                  <label for="category">Categoría</label>
-                  <select class="form-control" id="category">
-                    <option>Víveres</option>
-                    <option>Lácteos</option>
-                    <option>Verduras</option>
-                    <option>Electrónica</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="decription">Descripción</label>
-                  <textarea class="form-control" id="description" rows="5"></textarea>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Agregar</button>
-              </form>
-              
+        
+
+        <div class="popup itemView oculto" id="itemView">
+          <div class="div-cross ivp"><i id="closeItemView" class="fas fa-times"></i></div>
+          <h3 id="itemViewTitle" class="ivp">Nombre</h3>
+          <div class="div-cat ivp">
+            <img id="itemViewImg" src="" alt=""><p id="itemViewCategory">Cateogoría</p>
+          </div>
+          <p id="itemViewDescription" class="ivp">Descripción</p>
 
         </div>
 
-        <a href="" class="btn addButton"><i class="fas fa-plus"></i></a>
+        <div class="btn addButton" id="addButton"><i class="fas fa-plus"></i></div>
         
 
     </section>
@@ -74,9 +93,159 @@
 
     </footer>
 
+
+    <script>
+
+
+      alert('Hola Jony! Esta incompleto, pero es lo que llegué a hacer')
+
+      function iconSrc(categoria) {
+        switch (categoria) {
+          case 'Lácteos':
+            return 'https://img.icons8.com/officel/16/000000/milk-bottle.png'
+          case 'Electrónica':
+            return 'https://img.icons8.com/officel/16/000000/laptop.png'
+          case 'Víveres':
+            return 'https://img.icons8.com/fluent/48/000000/grocery-bag.png'
+          case 'Vegetales':
+            return 'https://img.icons8.com/cotton/64/000000/greenery-1--v2.png'
+          default:
+            break;
+        }
+      }
+      
+      let emptyList = document.getElementById('empty-list')
+
+      let addButton = document.getElementById('addButton')
+      let addForm = document.getElementById('addForm')
+      let submitAddButton = document.getElementById('submitAddButton')
+      let itemList = document.getElementById('itemList')
+      
+      function mostrar(elemento) {
+        elemento.classList.remove('oculto')
+      }
+
+      function ocultar(elemento) {
+        elemento.classList.add('oculto')
+      }
+
+      addButton.addEventListener('click', function(){
+        mostrar(addForm)
+      })
+
+      let form = document.getElementById('form')
+      let formItemTitle = document.getElementById('formItemTitle')
+      let formItemCategory = document.getElementById('formItemCategory')
+      let formItemDescription = document.getElementById('formItemDescription')
+
+      function cleanForm() {
+        form.reset()
+      }
+
+      function dataDelForm() {
+        let title = formItemTitle.value
+        let iconUrl = iconSrc(formItemCategory.value)
+        let description = formItemDescription.value
+        let categoria = formItemCategory.value
+        return [title, iconUrl, description, categoria]
+
+      }
+
+      function itemParaLista() {
+        let [title, iconUrl, description, categoria] = dataDelForm()
+
+        let newItem = document.createElement('li')
+        newItem.classList.add('item')
+
+        let h3 = document.createElement('h3')
+        h3.innerHTML = title
+        let img = document.createElement('img')
+        img.src = iconUrl
+        let angleIcon = document.createElement('i')
+        angleIcon.classList.add('fas')
+        angleIcon.classList.add('fa-angle-right')
+        let desc = document.createElement('p')
+        desc.innerHTML = description
+        let cat = document.createElement('p')
+        cat.innerHTML = categoria
+
+        newItem.appendChild(img)
+        newItem.appendChild(h3)
+        newItem.appendChild(angleIcon)
+        newItem.appendChild(desc)
+        newItem.appendChild(cat)
+
+
+        console.log(newItem)
+        return newItem
+
+      }
+
+      function agregarItem() {
+        let newItem = itemParaLista()
+        itemList.appendChild(newItem)
+        cleanForm()
+        ocultar(addForm)
+        if (!emptyList.className.includes('oculto')) {
+          emptyList.classList.add('oculto')
+        }
+      }
+
+
+      submitAddButton.addEventListener('click', agregarItem)
+
+      
+      let itemView = document.getElementById('itemView')
+      let itemViewImg = document.getElementById('itemViewImg')
+      let itemViewTitle = document.getElementById('itemViewTitle')
+      let itemViewCategory = document.getElementById('itemViewCategory')
+      let itemViewDescription = document.getElementById('itemViewDescription')
+
+      function esIconoAngle(evento) {
+        return evento.target.className == 'fas fa-angle-right'
+      }
+
+      function infoDesdeInfoList(item) {
+        let imgSrc = item.children[0].src
+        let name = item.children[1].innerHTML
+        let description = item.children[3].innerHTML
+        let category = item.children[4].innerHTML
+        return [imgSrc, name, description, category]
+      }
+
+      function cargarDataEnItemView(info) {
+        itemViewImg.src = info[0]
+        itemViewTitle.innerHTML = info[1]
+        itemViewDescription.innerHTML = info[2]
+        itemViewCategory.innerHTML = info[3]
+      }
+
+
+      document.addEventListener('click', function(e){
+        
+        console.log(e)
+        if (esIconoAngle(e)) {
+          console.log('akakka')
+          
+          let item = e.target.parentElement
+          let info = infoDesdeInfoList(item)
+
+          cargarDataEnItemView(info)
+          mostrar(itemView)
+          
+        }
+
+      })
+      
+      let closeItemView = document.getElementById('closeItemView')
+
+      closeItemView.addEventListener('click', function(){
+        ocultar(itemView)
+      })
+
+    </script>
+
 </body>
 
-
-
-
 </html>
+

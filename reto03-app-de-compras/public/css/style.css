@@ -1,4 +1,17 @@
 
+.mostrar {
+    display: flex;
+}
+
+.oculto {
+    display: none!important;
+}
+
+.ocultoCelu {
+    display: none!important;
+}
+
+
 body {
     font-family: 'lato';
 }
@@ -15,6 +28,7 @@ header {
 header h1 {
     color: white;
     margin-left: 20px;
+    margin-bottom: 0;
 }
 
 .addButton {
@@ -27,7 +41,6 @@ header h1 {
     width: 70px;
 
     position: fixed;
-    /* position: absolute; */
     bottom: 20px;
     right: 20px;
 
@@ -59,11 +72,14 @@ header h1 {
 
 
 
-.addForm {
-    background: #EEE;
+.popup {
+    background: #F6F6F6;
+    border: solid 1px #AAA;
     padding: 30px;
     margin: 30px;
     border-radius: 7px;
+    display: flex;
+    flex-direction: column;
 
     position: fixed;
     top: 20%;
@@ -71,3 +87,66 @@ header h1 {
     right: 2%;
     
 }
+
+
+.itemList {
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #F1F1F1;
+    border-bottom: solid 1px #DDD;
+    height: 60px;
+}
+
+.item img {
+    width: 30px;
+    margin-left: 20px;
+}
+
+.item i {
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+.item h3 {
+    margin: 0;
+}
+
+.item p {
+    display: none;
+}
+
+.itemView h3 {
+    text-align: center;
+}
+
+.div-cross {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.div-cat {
+    display: flex;
+    align-items: center;
+}
+
+.div-cat p {
+    margin: 0px 20px;
+}
+
+.div-cat img {
+    width: 40px;
+}
+
+.ivp {
+    margin: 20px;
+}
+
+
+
