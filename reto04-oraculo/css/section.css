@@ -1,11 +1,14 @@
 section {
     background: var(--white);
     height: 92vh;
-    padding: 20px 20px 150px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.pantalla {
+    padding: 20px 20px 150px 20px;
 }
 
 
@@ -60,9 +63,113 @@ form button {
 
 /* PANTALLA 3   -   CARTAS */
 
+#verCartas {
+    padding: 0px;
+    margin: 0px;
+}
+
+.close-cont {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#close {
+    font-size: 20px;
+    font-weight: 200;
+    display: flex;
+    justify-content: right;
+}
+
+em {
+    font-style: normal;
+}
 
 .carousel {
-    background: black;
-    color: white;
-    height: 500px;
+    color: black;
+    height: 80vh;
 }
+
+.carta {
+    padding: 0px 60px;
+}
+
+.carta h3 {
+    text-align: center;
+}
+
+.carta em {
+    font-size: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.carta p {
+    text-align: justify;
+}
+
+
+
+#cerrarCartasModal .modal-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cerrarCartasModal .modal-body button {
+    width: 200px;
+    margin: 10px;
+}
+
+
+
+
+/* PANTALLA 4   -   RESULTADOS */
+
+#resultados {
+    padding: 50px 20px;
+}
+
+.resultados {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.resultados h3 {
+    margin-top: 50px;
+    font-size: 30px;
+}
+
+.resultados em {
+    font-size: 100px;
+}
+
+.resultadosJugador h4 {
+    font-size: 22px;
+    margin: 10px;
+}
+
+.resultadosEmojis {
+    margin: 20px;
+}
+
+.resultadosEmojis em {
+    background: #DDD;
+    padding: 15px 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    border-radius: 100px;
+    margin: 10px;
+}
+

@@ -25,7 +25,7 @@
 
     <section>
 
-        <div class="container pantalla oculto" id="formulario">
+        <div class="container pantalla" id="inicial">
 
             <form>
                 <div class="form-group">
@@ -33,10 +33,10 @@
                     <input class="form-control" id="nombre1" required>
                 </div>
                 <div class="form-group">
-                    <label for="nombre2">Jugador 2</label>
+                    <label for="nombre">Jugador 2</label>
                     <input class="form-control" id="nombre2" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-primary" onclick="jugar()">Submit</button>
             </form>
 
             <div class="partidas">
@@ -47,49 +47,86 @@
 
         </div>
 
-        <div class="container pantalla animacion oculto">
+        <div class="container pantalla animacion oculto" id="animacion">
 
             <div class="loader"></div>
 
         </div>
 
-        <div class="container pantalla verCartas" id="verCartas">
+        <div class="container pantalla verCartas oculto" id="verCartas">
 
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="close-cont">
+                <button type="button" class="btn btn-close" id="close" data-bs-toggle="modal" data-bs-target="#cerrarCartasModal"></button>
+            </div>
+
+            <div id="carouselCartas" class="carousel slide carousel-dark" data-bs-ride="carousel">
                 <ol class="carousel-indicators">
-                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                    <li data-bs-target="#carouselCartas" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselCartas" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselCartas" data-bs-slide-to="2"></li>
+                    <li data-bs-target="#carouselCartas" data-bs-slide-to="3"></li>
+                    <li data-bs-target="#carouselCartas" data-bs-slide-to="4"></li>
+                    <li data-bs-target="#carouselCartas" data-bs-slide-to="5"></li>
                 </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <!-- <img src="..." class="d-block w-100" alt="..."> -->
-                    <h1>1</h1>
-                  </div>
-                  <div class="carousel-item">
-                    <!-- <img src="..." class="d-block w-100" alt="..."> -->
-                    <h1>2</h1>
-                  </div>
-                  <div class="carousel-item">
-                    <!-- <img src="..." class="d-block w-100" alt="..."> -->
-                    <h1>3</h1>
-                  </div>
+                <div class="carousel-inner" id="carouselCartasItems">
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
+                <a class="carousel-control-prev" href="#carouselCartas" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
+                <a class="carousel-control-next" href="#carouselCartas" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
                 </a>
-              </div>
+            </div>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="cerrarCartasModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <button type="button" class="btn btn-primary" onclick="verResultados()" data-bs-dismiss="modal">Ver resultados</button>
+                        <button type="button" class="btn btn-danger" onclick="volverATirar()" data-bs-dismiss="modal">Volver a tirar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container pantalla resultados oculto" id="resultados">
+
+            <!-- <h4 id="nombre1-resultados"></h4>
+
+            <div class="emojis">
+                <em id="emoji-1-1"></em>
+                <em id="emoji-1-2"></em>
+                <em id="emoji-1-3"></em>
+            </div>
+
+            <h4 id="nombre2-resultados"></h4>
+
+            <div class="emojis">
+                <em id="emoji-2-1"></em>
+                <em id="emoji-2-2"></em>
+                <em id="emoji-2-3"></em>
+            </div>
+
+            <h3>Match</h3>
+
+            <div id="emoji-match"></div> -->
 
         </div>
 
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="partida.js"></script>
+    <script src="index.js"></script>
+    
 
 </body>
 </html>
