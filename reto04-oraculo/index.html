@@ -36,11 +36,11 @@
                     <label for="nombre">Jugador 2</label>
                     <input class="form-control" id="nombre2" required>
                 </div>
-                <button type="button" class="btn btn-primary" onclick="jugar()">Submit</button>
+                <button type="button" class="btn btn-primary" onclick="nuevaPartida()">Submit</button>
             </form>
 
-            <div class="partidas">
-                <ul class="list-group">
+            <div class="partidasAnteriores oculto" id="partidasAnteriores">
+                <ul class="list-group" id="listaPartidas">
                     <li class="list-group-item">Cras justo odio</li>
                   </ul>
             </div>
@@ -85,7 +85,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <button type="button" class="btn btn-primary" onclick="verResultados()" data-bs-dismiss="modal">Ver resultados</button>
@@ -98,27 +98,10 @@
         </div>
 
         <div class="container pantalla resultados oculto" id="resultados">
-
-            <!-- <h4 id="nombre1-resultados"></h4>
-
-            <div class="emojis">
-                <em id="emoji-1-1"></em>
-                <em id="emoji-1-2"></em>
-                <em id="emoji-1-3"></em>
+            <div>
+                <button type="button" class="btn btn-primary" onclick="guardarYCerrar()" data-bs-dismiss="modal">Guardar</button>
+                <button type="button" class="btn btn-danger" onclick="cerrarPartida()" data-bs-dismiss="modal">Salir</button>
             </div>
-
-            <h4 id="nombre2-resultados"></h4>
-
-            <div class="emojis">
-                <em id="emoji-2-1"></em>
-                <em id="emoji-2-2"></em>
-                <em id="emoji-2-3"></em>
-            </div>
-
-            <h3>Match</h3>
-
-            <div id="emoji-match"></div> -->
-
         </div>
 
     </section>

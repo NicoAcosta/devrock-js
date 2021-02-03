@@ -5,21 +5,49 @@ let pantallaAnimacion = document.getElementById('animacion')
 let pantallaVerCartas = document.getElementById('verCartas')
 let pantallaVerResultados = document.getElementById('resultados')
 
-let partidas = []
+let partidas = {} // Dict -> "Pepe y Juan": partida
 let partidaActual = null
 
+function mostrar(element) {
+    if (element.className.includes('oculto')) element.classList.remove('oculto')
+}
+
+function ocultar(element) {
+    if (!element.className.includes('oculto')) element.classList.add('oculto')
+}
 
 
-function jugar() {
+function nuevaPartida() {
 
-    let nombre1 = document.getElementById('nombre1').value
-    let nombre2 = document.getElementById('nombre2').value
+    let inputNombre1 = document.getElementById('nombre1')
+    let inputNombre2 = document.getElementById('nombre2')
+
+    let nombre1 = inputNombre1.value
+    let nombre2 = inputNombre2.value
+
+    tirar(nombre1, nombre2)
+
+    ocultar(pantallaInicial)
+
+    inputNombre1.value = ''
+    inputNombre2.value = ''
+
+}
+
+function tirar(nombre1, nombre2) {
 
     let partida = new Partida (nombre1, nombre2)
-    partidas.push(partida)
     partidaActual = partida
 
-    let cartas = partida.cartas
+    verPartida()
+
+}
+
+function verPartida() {
+
+    mostrar(pantallaAnimacion)
+
+    let cartas = partidaActual.cartas
 
     carouselCartasItems.appendChild(cartas[0])
     carouselCartasItems.appendChild(cartas[1])
@@ -28,30 +56,76 @@ function jugar() {
     carouselCartasItems.appendChild(cartas[4])
     carouselCartasItems.appendChild(cartas[5])
 
-    pantallaInicial .classList.add('oculto')
-    pantallaAnimacion.classList.remove('oculto')
-
     setTimeout(function() {
 
         cartas[0].classList.add('active')
 
-        pantallaAnimacion.classList.add('oculto')
-        pantallaVerCartas.classList.remove('oculto')
+        ocultar(pantallaAnimacion)
+        mostrar(pantallaVerCartas)
 
-      }, 3000);
-
-
-    
-
+    }, 3000);
 
 }
+
+function volverATirar() {
+
+    carouselCartasItems.innerHTML = ''
+
+    let nombre1 = partidaActual.jugador1.nombre
+    let nombre2 = partidaActual.jugador2.nombre
+
+    ocultar(pantallaVerCartas)
+    tirar(nombre1, nombre2)
+
+}
+
 
 function verResultados() {
 
     let resultadosDiv = partidaActual.resultadosDiv()
     pantallaVerResultados.appendChild(resultadosDiv)
 
-    pantallaVerCartas .classList.add('oculto')
-    pantallaVerResultados.classList.remove('oculto')
+    ocultar(pantallaVerCartas)
+    mostrar(pantallaVerResultados)
+
+    carouselCartasItems.innerHTML = ''
 
 }
+
+function guardarYCerrar() {
+    guardar()
+    cerrarPartida()
+}
+
+function cerrarPartida() {
+
+    ocultar(pantallaVerResultados)
+    mostrar(pantallaInicial)
+
+    pantallaVerResultados.innerHTML = ''
+
+}
+
+function guardar() {
+
+    partidas[partidaActual.titulo] = partidaActual
+
+    mostrar(partidasAnteriores)
+    listaPartidas.appendChild(partidaActual.listItemDiv())
+
+}
+
+listaPartidas.addEventListener('click', function(e) {
+
+    if (e.target.className.includes('list-group-item')) {
+        let li = e.target
+
+        partidaActual = partidas[li.innerHTML]
+
+        ocultar(pantallaInicial)
+
+        verPartida()
+
+    }
+
+})

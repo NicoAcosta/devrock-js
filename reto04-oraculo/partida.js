@@ -40,7 +40,6 @@ class Helper {
 
 }
 
-// let Helper = new Helper()
 
 class Carta {
     constructor(emoji, description, puntaje) {
@@ -99,6 +98,15 @@ class Partida {
 
         return div
 
+    }
+
+    listItemDiv() {
+        
+        let li = document.createElement('li')
+        li.classList.add('list-group-item')
+        li.innerHTML = this.titulo
+
+        return li
     }
 
 }
