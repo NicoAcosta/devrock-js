@@ -1,9 +1,13 @@
 
 header {
     height: 8vh;
-    background: cornflowerblue;
+    background: var(--dark-purple);
     display: flex;
     align-items: center;
+}
+
+.btn-primary {
+    background: var(--dark-purple);
 }
 
 header h1 {

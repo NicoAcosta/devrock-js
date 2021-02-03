@@ -7,6 +7,10 @@ body {
     --white: #FAFAFA;
     --blue: #12B0C9;
     --green: #C4DD5B;
+    --dark-purple: #512DA8;
+    --purple: #673AB7;
+    --light-purple: #D1C4E9;
+    --amber: #FFC107;
 }
 
 .pantalla {

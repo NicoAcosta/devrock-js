@@ -3,10 +3,14 @@ let carouselCartasItems = document.getElementById('carouselCartasItems')
 let pantallaInicial = document.getElementById('inicial')
 let pantallaAnimacion = document.getElementById('animacion')
 let pantallaVerCartas = document.getElementById('verCartas')
-let pantallaVerResultados = document.getElementById('resultados')
+let pantallaVerResultados = document.getElementById('pantallaResultados')
+
+let divResutlados = document.getElementById('resultados')
 
 let partidas = {} // Dict -> "Pepe y Juan": partida
 let partidaActual = null
+
+alert('Lo estaba integrando con una API de Rick and Morty pero no llegue, quedaron los emojis...')
 
 function mostrar(element) {
     if (element.className.includes('oculto')) element.classList.remove('oculto')
@@ -26,7 +30,6 @@ function nuevaPartida() {
     let nombre2 = inputNombre2.value
 
     tirar(nombre1, nombre2)
-
     ocultar(pantallaInicial)
 
     inputNombre1.value = ''
@@ -83,7 +86,7 @@ function volverATirar() {
 function verResultados() {
 
     let resultadosDiv = partidaActual.resultadosDiv()
-    pantallaVerResultados.appendChild(resultadosDiv)
+    divResutlados.appendChild(resultadosDiv)
 
     ocultar(pantallaVerCartas)
     mostrar(pantallaVerResultados)
@@ -102,7 +105,7 @@ function cerrarPartida() {
     ocultar(pantallaVerResultados)
     mostrar(pantallaInicial)
 
-    pantallaVerResultados.innerHTML = ''
+    divResutlados.innerHTML = ''
 
 }
 

@@ -1,10 +1,11 @@
 section {
-    background: var(--white);
+    background: var(--light-purple);
     height: 92vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .pantalla {
@@ -30,6 +31,11 @@ form button {
     margin: 10px 0px;
 }
 
+.partidasAnteriores h3{
+    font-size: 20px;
+    margin: 20px 0px;
+}
+
 
 
 
@@ -37,7 +43,7 @@ form button {
 
 .loader {
     border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    border-top: 16px solid var(--purple); /* Blue */
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -133,8 +139,17 @@ em {
 
 /* PANTALLA 4   -   RESULTADOS */
 
-#resultados {
+/* #resultados {
     padding: 50px 20px;
+} */
+
+.pantallaResultados {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
 }
 
 .resultados {
@@ -154,13 +169,17 @@ em {
     font-size: 100px;
 }
 
-.resultadosJugador h4 {
-    font-size: 22px;
+.resultadosJugador {
     margin: 10px;
 }
 
+.resultadosJugador h4 {
+    font-size: 22px;
+    margin: 5px 10px 25px 10px;
+}
+
 .resultadosEmojis {
-    margin: 20px;
+    height: 70px;
 }
 
 .resultadosEmojis em {
@@ -171,5 +190,9 @@ em {
     font-size: 30px;
     border-radius: 100px;
     margin: 10px;
+}
+
+.resultadosBotones {
+    margin: 50px;
 }
 

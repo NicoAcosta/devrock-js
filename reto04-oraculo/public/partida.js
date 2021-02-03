@@ -78,7 +78,7 @@ class Partida {
     }
 
     emojiMatch() {
-        if (this.match) return '👎'
+        if (this.match) return '👍'
         else return '👎'
     }
 

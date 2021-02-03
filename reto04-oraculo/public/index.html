@@ -36,13 +36,13 @@
                     <label for="nombre">Jugador 2</label>
                     <input class="form-control" id="nombre2" required>
                 </div>
-                <button type="button" class="btn btn-primary" onclick="nuevaPartida()">Submit</button>
+                <button type="button" class="btn btn-primary" onclick="nuevaPartida()">Jugar</button>
             </form>
 
             <div class="partidasAnteriores oculto" id="partidasAnteriores">
+                <h3>Partidas Anteriores</h3>
                 <ul class="list-group" id="listaPartidas">
-                    <li class="list-group-item">Cras justo odio</li>
-                  </ul>
+                </ul>
             </div>
 
         </div>
@@ -97,8 +97,11 @@
 
         </div>
 
-        <div class="container pantalla resultados oculto" id="resultados">
-            <div>
+        <div class="container pantalla pantallaResultados oculto" id="pantallaResultados">
+            <div id="resultados">
+
+            </div>
+            <div class="resultadosBotones" id="resultadosBotones">
                 <button type="button" class="btn btn-primary" onclick="guardarYCerrar()" data-bs-dismiss="modal">Guardar</button>
                 <button type="button" class="btn btn-danger" onclick="cerrarPartida()" data-bs-dismiss="modal">Salir</button>
             </div>
