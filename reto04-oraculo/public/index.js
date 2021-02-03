@@ -118,6 +118,7 @@ function guardar() {
 listaPartidas.addEventListener('click', function(e) {
 
     if (e.target.className.includes('list-group-item')) {
+        
         let li = e.target
 
         partidaActual = partidas[li.innerHTML]
